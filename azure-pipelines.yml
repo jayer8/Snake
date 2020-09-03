@@ -12,7 +12,7 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
+    versionSpec: '12.x'
   displayName: 'Install Node.js'
 
 - script: |
@@ -20,12 +20,3 @@ steps:
     npm install
     npx webpack --config webpack.prod.js
   displayName: 'npm install, run webpack'
-
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Pay-As-You-Go(9c8b6167-1033-4b7c-a296-eaa903df2870)'
-    appType: 'webAppLinux'
-    WebAppName: 'snakejs-jayer8'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    RuntimeStack: 'NODE|12-lts'
