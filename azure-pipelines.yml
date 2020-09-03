@@ -20,3 +20,12 @@ steps:
     npm install
     npx webpack --config webpack.prod.js
   displayName: 'npm install, run webpack'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: '$(subscription)'
+    appType: 'webAppLinux'
+    WebAppName: 'snakejs-jayer8'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/dist'
+    RuntimeStack: 'NODE|12-lts'
