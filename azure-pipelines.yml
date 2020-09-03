@@ -27,5 +27,5 @@ steps:
     azureSubscription: 'FrontEndConnection'
     appType: 'webAppLinux'
     WebAppName: 'snakejs-jayer8'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/dist'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/dist'
     RuntimeStack: 'NODE|12-lts'
